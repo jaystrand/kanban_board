@@ -206,7 +206,8 @@ tbody tr:nth-child(odd) {
 }
 
 .form button {
-  margin-top: 2.5%;
+  width: 100%;
+  margin-top: 16px;
 }
 
 .form textarea {
@@ -240,6 +241,14 @@ tbody tr:nth-child(odd) {
   width: 100%;
   align-items: center;
   justify-content: center;
+}
+
+.form input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 

@@ -5,7 +5,7 @@ interface JwtPayload {
   username: string;
 }
 
-export const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
+export const authenticateToken = (req: Request, res: Response, next: NextFunction): Response | void => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
@@ -16,7 +16,7 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || 'your-secret-key') as JwtPayload;
     req.user = decoded;
-    next();
+    return next();
   } catch (err) {
     return res.status(403).json({ message: 'Invalid or expired token' });
   }

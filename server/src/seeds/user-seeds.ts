@@ -6,4 +6,6 @@ export const seedUsers = async () => {
     { username: 'SunnyScribe', password: 'password' },
     { username: 'RadiantComet', password: 'password' },
   ], { individualHooks: true });
+ 
+  //await User.create({ username: 'JollyGuru', password: 'password' });
 };

@@ -1,8 +1,7 @@
-// src/models/index.ts
 import dotenv from 'dotenv';
 dotenv.config(); // Ensure this is at the top
 import { Sequelize } from 'sequelize';
-// Explicitly log and process environment variables
+import { UserFactory } from './user'; // Import the factory function for User
 console.log('DB_USER:', process.env.DB_USER);
 console.log('DB_PASSWORD:', process.env.DB_PASSWORD ? '[REDACTED]' : 'UNDEFINED');
 console.log('DB_NAME:', process.env.DB_NAME);
@@ -16,7 +15,10 @@ const sequelize = new Sequelize({
     database: process.env.DB_NAME || 'default_db_name',
     logging: console.log,
     dialectOptions: {
-        ssl: false
-    }
+        ssl: false,
+    },
 });
-export { sequelize };
+// Initialize the User model
+const User = UserFactory(sequelize);
+// Export both sequelize and User
+export { sequelize, User };

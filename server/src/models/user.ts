@@ -14,10 +14,6 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
   public username!: string;
   public password!: string;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
-
-  // Hash the password before saving the user
   public async setPassword(password: string) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(password, saltRounds);
@@ -51,9 +47,10 @@ export function UserFactory(sequelize: Sequelize): typeof User {
         beforeUpdate: async (user: User) => {
           await user.setPassword(user.password);
         },
-      }
+      },
     }
   );
 
   return User;
 }
+

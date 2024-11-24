@@ -9,7 +9,10 @@ interface UserAttributes {
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-export class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
+export class User
+  extends Model<UserAttributes, UserCreationAttributes>
+  implements UserAttributes
+{
   public id!: number;
   public username!: string;
   public password!: string;
@@ -53,4 +56,5 @@ export function UserFactory(sequelize: Sequelize): typeof User {
 
   return User;
 }
+
 

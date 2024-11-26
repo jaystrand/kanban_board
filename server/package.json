@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "main": "dist/server.js",
+  "engines": {
+    "node": "22.9.1"
+  },
   "scripts": {
     "dev": "npx nodemon",
     "build": "npx tsc",

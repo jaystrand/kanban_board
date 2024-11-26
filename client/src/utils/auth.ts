@@ -25,6 +25,7 @@ class AuthService {
   }
 
   login(idToken: string) {
+    console.log(idToken);
     localStorage.setItem('id_token', idToken);
     window.location.assign('/');
   }

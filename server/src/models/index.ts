@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize';
 import { UserFactory } from './user.js'; // Note the `.js` extension for ESM
 import dotenv from 'dotenv';
+import { TicketFactory } from './ticket.js';
 dotenv.config();
 
 // Add this before your Sequelize configuration
@@ -25,9 +26,12 @@ const sequelize = new Sequelize({
   },
 });
 
-// Initialize the User model
 const User = UserFactory(sequelize);
+const Ticket = TicketFactory(sequelize);
 
-export { sequelize, User }; // Use `export` for ES Modules
+User.hasMany(Ticket, { foreignKey: 'assignedUserId' });
+Ticket.belongsTo(User, { foreignKey: 'assignedUserId', as: 'assignedUser'});
+
+export { sequelize, User, Ticket };
 
 

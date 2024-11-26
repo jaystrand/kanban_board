@@ -10,12 +10,13 @@ export const login = async (credentials: UserLogin) => {
       body: JSON.stringify(credentials),
     });
 
+    
     if (!response.ok) {
       throw new Error('Login failed');
     }
 
-    const data = await response.json();
-    return data;
+    return response.json();
+   
   } catch (err) {
     console.error('Error in login:', err);
     return Promise.reject('Login failed');

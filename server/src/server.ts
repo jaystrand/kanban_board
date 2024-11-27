@@ -13,6 +13,9 @@ const PORT = process.env.PORT || 5432;
 // Middleware
 app.use(express.json());
 
+// Serves static files in the entire client's dist folder
+app.use(express.static('../client/dist'));
+
 app.use('/auth', authRoutes);
 // Add authentication middleware to protect API routes
 app.use('/api', authenticateToken, apiRoutes);

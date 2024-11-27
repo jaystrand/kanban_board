@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx nodemon",
     "build": "npx tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "seed": "node dist/seeds/index.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

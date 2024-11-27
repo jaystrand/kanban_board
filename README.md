@@ -1,13 +1,12 @@
 # Kanban Krazy Board ![badge](https://img.shields.io/badge/license-MIT-blue)
 
 ## Table of Contents
-- ###[Description](#description)
-- ###[Usage](#usage)
-- ###[Features](#features)
-- ###[Installation](#installation)
-- ###[License](#license)
-- ###[Contributors](#contributors)
-- ###[Questions](#questions)
+- [Description](#description)
+- [Usage](#usage)
+- [Features](#features)
+- [Installation](#installation)
+- [Contributors](#contributors)
+- [Questions](#questions)
 
 ## Description
 
